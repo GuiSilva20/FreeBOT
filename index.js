@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const projeto = require('./commands/Comandos/projeto');
+
 const config = require("./config.json");
 
 
@@ -42,112 +42,8 @@ client.login(config.token)
 /////////////////////////////////////////////////////////////////////////////// Comando projeto
 
 client.on("interactionCreate", (interaction) => {
-      const nome_title = projeto.nome_title;
-      const outro = projeto.outro_title
-      const suffix = projeto.suffix
-
-      if (suffix && outro !== null) {
-        let nome = `${suffix}-${nome_title}-avisos-e-links`;
-        let warning = `${suffix}-${nome_title}-outros`;
-        let voice = `[${suffix}]${nome_title}: Live`;
-        let id = interaction.guild.roles.cache.get("1105588315484332032")
-
-
-        interaction.guild.channels.create({
-          name: `${outro}_${nome_title}`,
-          type: Discord.ChannelType.GuildCategory,
-          permissionOverwrites: [
-            {
-              id: id,
-              allow: [
-                Discord.PermissionFlagsBits.ViewChannel,
-                Discord.PermissionFlagsBits.SendMessages,
-                Discord.PermissionFlagsBits.AttachFiles,
-                Discord.PermissionFlagsBits.EmbedLinks,
-                Discord.PermissionFlagsBits.AddReactions]
-            },
-            {
-              id: interaction.guild.id,
-              deny: [Discord.PermissionFlagsBits.ViewChannel]
-            }
-          ]
-
-        })
-
-
-
-        setTimeout(() => {
-          let lastCategoryChannel = interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildCategory).last();
-          const createChannelsOutro = async () => {
-            interaction.guild.channels.create({
-              name: nome,
-              type: Discord.ChannelType.GuildText,
-              parent: lastCategoryChannel,
-              permissionOverwrites: [
-                {
-                  id: id,
-                  allow: [
-                    Discord.PermissionFlagsBits.ViewChannel,
-                    Discord.PermissionFlagsBits.SendMessages,
-                    Discord.PermissionFlagsBits.AttachFiles,
-                    Discord.PermissionFlagsBits.EmbedLinks,
-                    Discord.PermissionFlagsBits.AddReactions]
-                },
-                {
-                  id: interaction.guild.id,
-                  deny: [Discord.PermissionFlagsBits.ViewChannel]
-                }
-              ],
-            }),
-            interaction.guild.channels.create({
-              name: warning,
-              type: Discord.ChannelType.GuildText,
-              parent: lastCategoryChannel,
-              permissionOverwrites: [
-                {
-                  id: id,
-                  allow: [
-                    Discord.PermissionFlagsBits.ViewChannel,
-                    Discord.PermissionFlagsBits.SendMessages,
-                    Discord.PermissionFlagsBits.AttachFiles,
-                    Discord.PermissionFlagsBits.EmbedLinks,
-                    Discord.PermissionFlagsBits.AddReactions]
-                },
-                {
-                  id: interaction.guild.id,
-                  deny: [Discord.PermissionFlagsBits.ViewChannel]
-                }
-              ]
-            }), interaction.guild.channels.create({
-              name: voice,
-              type: Discord.ChannelType.GuildVoice,
-              parent: lastCategoryChannel,
-              permissionOverwrites: [
-                {
-                  id: id,
-                  allow: [
-                    Discord.PermissionFlagsBits.ViewChannel,
-                    ]
-                },
-                {
-                  id: interaction.guild.id,
-                  deny: [Discord.PermissionFlagsBits.ViewChannel]
-                }
-              ],
-            }).then( () => {
-              interaction.reply({ content: `✅ A categoria Outro foi criada com sucesso.`, ephemeral: true })
-              interaction.channel.bulkDelete(3)
-              
-          })
-          }
-          console.log(lastCategoryChannel)
-          createChannelsOutro()
-       
-          
-          
-        }, 1000)
-
-      }
+    
+    
 
   if (interaction.isStringSelectMenu()) {
 
@@ -309,106 +205,11 @@ async function createChannel(title) {
         // Nova opção
 
 
-        
-        let nome = `${suffix}-${nome_title}-avisos-e-links`;
-        let warning = `${suffix}-${nome_title}-outros`;
-        let voice = `[${suffix}]${nome_title}: Live`;
-        let id = interaction.guild.roles.cache.get("1105588315484332032")
-
-
-        interaction.guild.channels.create({
-          name: `${outro}_${nome_title}`,
-          type: Discord.ChannelType.GuildCategory,
-          permissionOverwrites: [
-            {
-              id: id,
-              allow: [
-                Discord.PermissionFlagsBits.ViewChannel,
-                Discord.PermissionFlagsBits.SendMessages,
-                Discord.PermissionFlagsBits.AttachFiles,
-                Discord.PermissionFlagsBits.EmbedLinks,
-                Discord.PermissionFlagsBits.AddReactions]
-            },
-            {
-              id: interaction.guild.id,
-              deny: [Discord.PermissionFlagsBits.ViewChannel]
-            }
-          ]
-
-        })
-
-
-
-        setTimeout(() => {
-          let lastCategoryChannel = interaction.guild.channels.cache.filter(channel => channel.type === Discord.ChannelType.GuildCategory).last();
-          const createChannelsOutro = async () => {
-            interaction.guild.channels.create({
-              name: nome,
-              type: Discord.ChannelType.GuildText,
-              parent: lastCategoryChannel,
-              permissionOverwrites: [
-                {
-                  id: id,
-                  allow: [
-                    Discord.PermissionFlagsBits.ViewChannel,
-                    Discord.PermissionFlagsBits.SendMessages,
-                    Discord.PermissionFlagsBits.AttachFiles,
-                    Discord.PermissionFlagsBits.EmbedLinks,
-                    Discord.PermissionFlagsBits.AddReactions]
-                },
-                {
-                  id: interaction.guild.id,
-                  deny: [Discord.PermissionFlagsBits.ViewChannel]
-                }
-              ],
-            }),
-            interaction.guild.channels.create({
-              name: warning,
-              type: Discord.ChannelType.GuildText,
-              parent: lastCategoryChannel,
-              permissionOverwrites: [
-                {
-                  id: id,
-                  allow: [
-                    Discord.PermissionFlagsBits.ViewChannel,
-                    Discord.PermissionFlagsBits.SendMessages,
-                    Discord.PermissionFlagsBits.AttachFiles,
-                    Discord.PermissionFlagsBits.EmbedLinks,
-                    Discord.PermissionFlagsBits.AddReactions]
-                },
-                {
-                  id: interaction.guild.id,
-                  deny: [Discord.PermissionFlagsBits.ViewChannel]
-                }
-              ]
-            }), interaction.guild.channels.create({
-              name: voice,
-              type: Discord.ChannelType.GuildVoice,
-              parent: lastCategoryChannel,
-              permissionOverwrites: [
-                {
-                  id: id,
-                  allow: [
-                    Discord.PermissionFlagsBits.ViewChannel,
-                    ]
-                },
-                {
-                  id: interaction.guild.id,
-                  deny: [Discord.PermissionFlagsBits.ViewChannel]
-                }
-              ],
-            }).then( () => {
-              interaction.reply({ content: `✅ A categoria Outro foi criada com sucesso.`, ephemeral: true })
+  
+              interaction.reply({ content: `Em construção..`, ephemeral: true })
               interaction.channel.bulkDelete(3)
               
-          })
-          }
-          console.log(lastCategoryChannel)
-          createChannelsOutro()
-       
-          
-          
-        }, 1000)
+        
 
 
 
