@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
-
+const moongose = require("mongoose")
 const config = require("./config.json");
-
+const files = require('./src/schemas/files')
 
 const client = new Discord.Client({
   intents: [
@@ -11,6 +11,12 @@ const client = new Discord.Client({
 
 module.exports = client
 
+moongose.connect(config.mongooseID, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then((m) => {
+  console.log(`[${config.name}] se conectou com sucesso.`)
+})
 client.on('interactionCreate', (interaction, ) => {
 
   if (interaction.type === Discord.InteractionType.ApplicationCommand) {
@@ -28,8 +34,9 @@ client.on('interactionCreate', (interaction, ) => {
 
 client.on('ready', () => {
   
-  console.log(`🔥 Estou online em ${client.user.username}!`)
+  console.log(`🔥  ${config.name} online em ${client.user.username}!`)
 })
+
 
 
 client.slashCommands = new Discord.Collection()
