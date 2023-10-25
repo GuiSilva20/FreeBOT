@@ -37,7 +37,7 @@ module.exports = {
                 throw error;
             }
         
-        } else {
+        } else if (isOn.battleMode == true) {
             try {
                 const updatedData = await battleM.findOneAndUpdate(
                     {id: 1},

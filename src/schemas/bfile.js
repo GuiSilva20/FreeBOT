@@ -6,6 +6,10 @@ const battlefSchema = new moongose.Schema({
         type: moongose.SchemaTypes.String,
         required: true
     },
+    image: {
+        type: moongose.SchemaTypes.String,
+        required: true
+    },
     classe: {
         type: moongose.SchemaTypes.String,
         required: true
@@ -28,6 +32,36 @@ const battlefSchema = new moongose.Schema({
         type: String,
         required: false
     },
+    elemento: {
+        type: String,
+        required: true
+    },
+    elementoID: {
+        type: Number,
+        required: false
+    },
+    estrutura: {
+        força: {
+            type: Number,
+            required: true,
+            default: 1
+        },
+        agilidade: {
+            type: Number,
+            required: true,
+            default: 1
+        },
+        espirito: {
+            type: Number,
+            required: true,
+            default: 1
+        },
+        inteligencia: {
+            type: Number,
+            required: true,
+            default: 1
+        }
+    },
     attributes: {
         furtividade: {
             type: Number,
@@ -38,8 +72,52 @@ const battlefSchema = new moongose.Schema({
             type: Number,
             required: true,
             default: 0
+        },
+        fortitude: {
+            type: Number,
+            required: true,
+            default: 0
+        },
+        presença: {
+            type: Number,
+            required: true,
+            default: 0
+        },
+        crime: {
+            type: Number,
+            required: true,
+            default: 0
+        }, 
+        reflexos: {
+            type: Number,
+            required: true,
+            default: 0
+        },
+        atualidades: {
+            type: Number,
+            required: true,
+            default: 0
+        },
+        pericia: {
+            type: Number,
+            required: true,
+            default: 0
         }
 
+
+    },
+    dano: {
+        danoTotal: {
+            type: Number,
+            required: true,
+            default: 0
+        },
+        dano: {
+            type: String,
+            required: true,
+           
+        }
+        
     }
 })
 
