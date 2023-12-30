@@ -3,6 +3,7 @@
     "color": "#02569d",
     "name" : "Kai",
     "prnm": "o",
+    "desc": "",
     "mongooseID": "mongodb+srv://user:93048116@cluster0.2atlxlk.mongodb.net/?retryWrites=true&w=majority",
     "kaiIcon": "https://cdn.discordapp.com/attachments/1159963341385650176/1159965660793810965/OIG.FITfX4xM_ScW.h.jpeg?ex=6532f134&is=65207c34&hm=465a14e921fc0ea4a184fc48aee898f11d02b8e45471d24099913f95596bb006&"
 }

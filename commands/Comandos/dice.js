@@ -28,6 +28,8 @@ module.exports = {
   run: async (client, interaction) => {
 
 
+    let userID = interaction.user.id
+
     let roller = await player.findOne({ discordID: interaction.user.id })
 
     /*const newbattleFile = await powers.create({

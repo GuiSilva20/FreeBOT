@@ -17,6 +17,16 @@ const classesSchema = new moongose.Schema({
     image: {
         type: moongose.SchemaTypes.String,
         required: false
+    },
+    HP: {
+        type: moongose.SchemaTypes.Number,
+        required: true,
+        default: 0
+    },
+    MA: {
+        type: moongose.SchemaTypes.Number,
+        required: true,
+        default: 0
     }
 })
 

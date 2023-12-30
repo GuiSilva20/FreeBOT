@@ -4,9 +4,8 @@ const moongose = require('mongoose')
 const menuSchema = new moongose.Schema({
 
     id: {
-        type: Number,
+        type: String,
         required: true,
-        default: 1
     },
     name: {
         type: moongose.SchemaTypes.String,
@@ -18,24 +17,15 @@ const menuSchema = new moongose.Schema({
         required: true,
 
     },
-    element: {
-        type: moongose.SchemaTypes.String,
-        required: true,
-
-    },
     desc: {
         type: moongose.SchemaTypes.String,
         required: true,
 
     },
-    image: {
+    value: {
         type: moongose.SchemaTypes.String,
         required: true,
 
-    },
-    kingdom: {
-        type: moongose.SchemaTypes.String,
-        required: true
     }
 })
 
